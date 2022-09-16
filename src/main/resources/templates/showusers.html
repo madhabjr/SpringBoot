@@ -1,0 +1,33 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<title> LIST OF USERS </title>
+</head>
+<body>
+<section>
+<table class="table table-bordered">
+	<tr> 
+		<th> name </th>
+		<th> email </th>
+		<th> about </th>
+		<th> image </th>
+		<th> Actions</th>
+	</tr>
+	
+	<tr th:each="user: ${listUser}">
+    <td th:text="${user.name}" />
+    <td th:text="${user.email}" />
+    <td th:text="${user.about}" />
+    <!--td th:text="${user.imageUrl}" /-->
+ <td> 
+    <img src="" class="my_profile_picture" th:src="@{'/img/'+${user.imageUrl}}" alt="profile photo" />
+    </td>
+    <td>
+    	<a th:href="@{/edit/{id}(id=${user.id})}"> Update</a>
+    	<a th:href="@{/delete/{id}(id=${user.id})}"> Delete</a> 
+    </td>
+</tr>
+</table>
+</section>
+</body>
+</html>

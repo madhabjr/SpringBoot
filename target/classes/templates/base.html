@@ -1,0 +1,28 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:fragment="layout(content)">
+<head>
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script th:src="@{/js/bootstrap.min.js}"></script>
+<title> GAME ZOne </title>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">GAme ZOne</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a th:href="@{/}">Home</a></li>
+      <li><a th:href="@{/register}">Register</a></li>
+      <li><a th:href="@{/login}">Login</a></li>
+       <li><a th:href="@{/display}">ShowUsers</a></li>
+      <li><a th:href="@{/user/addg}">AddGames</a></li>
+      <li><a th:href="@{/user/showgames/0}">ShowGames</a></li>
+    </ul>
+  </div>
+</nav>
+<div th:replace="${content}">
+</div>
+</body>
+</html>
